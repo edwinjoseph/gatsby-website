@@ -3,7 +3,7 @@ import React from "React"
 import Container from "global/Container"
 import Link from "atoms/Link"
 
-import "./Footer.css"
+import "./Footer.scss"
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

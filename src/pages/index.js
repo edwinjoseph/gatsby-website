@@ -4,8 +4,6 @@ import Layout from "global/Layout"
 import SEO from "global/SEO"
 import Section from "global/Section"
 
-import "./global.css"
-
 const IndexPage = () => (
   <Layout>
     <SEO />

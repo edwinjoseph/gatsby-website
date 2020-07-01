@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import "./Container.css"
+
+import "./Container.scss"
 
 const Container = ({ children }) => {
   return (

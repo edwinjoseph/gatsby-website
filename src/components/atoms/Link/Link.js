@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link as RouteTo } from "gatsby"
 
-import "./Link.css"
+import "./Link.scss"
 
 const Link = ({ to, href, target, children }) => {
   if (!to && !href) {

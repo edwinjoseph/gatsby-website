@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import Container from "global/Container"
 import Link from "atoms/Link"
 
-import "./Header.css"
+import "./Header.scss"
 
 const Header = ({ siteTitle }) => (
   <header>
