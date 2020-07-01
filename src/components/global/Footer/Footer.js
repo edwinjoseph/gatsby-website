@@ -8,7 +8,7 @@ import "./Footer.scss"
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer>
+    <footer className="Footer">
       <Container>
         © Edwin Joseph {currentYear}, Built with <Link href="https://www.gatsbyjs.org" target="_blank">Gatsby</Link>
       </Container>

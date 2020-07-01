@@ -1,0 +1,11 @@
+@import "~styles/base";
+
+html {
+  background-color: $background-color;
+  font-size: $font-size-base;
+  color: $text-color-base;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $text-color-heading;
+}

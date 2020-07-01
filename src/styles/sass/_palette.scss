@@ -1,0 +1,14 @@
+@use "sass:map";
+
+$palette: (
+  "cream": #E7DFD5,
+  "light-blue": #84A9AC,
+  "blue": #3B6978,
+  "dark-blue": #204051,
+  "darker-blue": #092532,
+  "black": #07031a,
+);
+
+@function color($name) {
+  @return map-get($palette, $name)
+}

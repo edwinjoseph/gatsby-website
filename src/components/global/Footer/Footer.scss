@@ -1,4 +1,8 @@
-footer {
-    background-color: #E8E8E8;
-    padding: 16px 0;
+@import "~styles/base";
+
+.Footer {
+  padding: 16px 0;
+  a {
+    border-bottom: 1px dotted;
+  }
 }

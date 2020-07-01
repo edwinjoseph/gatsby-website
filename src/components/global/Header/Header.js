@@ -7,7 +7,7 @@ import Link from "atoms/Link"
 import "./Header.scss"
 
 const Header = ({ siteTitle }) => (
-  <header>
+  <header className="Header">
     <Container>
       <h1>
         <Link to="/">

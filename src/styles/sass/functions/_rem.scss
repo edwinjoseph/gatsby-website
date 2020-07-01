@@ -1,0 +1,21 @@
+@import "../sizing";
+
+$supports: (rems: true) !default;
+
+@function has-rem($value) {
+  @return unit($value) == 'rem';
+}
+
+@function remove-unit($number){
+  @return $number / ($number * 0 + 1);
+}
+
+@function rem($value, $base: $font-size-base) {
+  @if map-get($supports, rems) and has-rem($value) {
+    @return $value;
+  }
+  @if map-get($supports, rems) {
+    @return (remove-unit($value) / remove-unit($base)) * 1rem;
+  }
+  @return (remove-unit($value) * 1px);
+}
