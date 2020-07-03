@@ -1,0 +1,8 @@
+path: /
+components:
+  - type: hero
+    props:
+      this: that
+  - type: form
+    props:
+      that: this

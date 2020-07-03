@@ -8,12 +8,17 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-alias-imports`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+        aliases: {
+          global: `src/components/global`,
+          shared: `src/components/shared`,
+          atoms: `src/components/atoms`,
+          styles: `src/styles/sass`,
+        }
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -24,20 +29,36 @@ module.exports = {
         background_color: `#e7dfd5`,
         theme_color: `#3b6978`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `content/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     {
-      resolve: `gatsby-alias-imports`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        aliases: {
-          global: `src/components/global`,
-          atoms: `src/components/atoms`,
-          styles: `src/styles/sass`,
-        }
-      }
+        name: `images`,
+        path: `${__dirname}/content/images`,
+      },
     },
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/content/pages`,
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-yaml-full',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-yaml-full-markdown',
+            options: {
+              unwrapSingleLine: true
+            }
+          },
+        ],
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

@@ -1,0 +1,5 @@
+path: /test
+components:
+  - type: hero
+    props:
+      this: that
