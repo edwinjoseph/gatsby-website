@@ -13,16 +13,29 @@ const getPageData = graphql => graphql(`
   }
 `)
 
+const buildPageComponents = (type, pages) => pages.reduce((acc, { path, components }) => {
+  const component = components.find(component => component.type === type);
+
+  if (component) {
+    acc.push({
+      idx: components.indexOf(component),
+      path,
+      ...component,
+    })
+  }
+
+  return acc;
+}, [])
+
 exports.sourceNodes = ({ actions: { createTypes }}) => {
-  const typeDefs = `
+  createTypes(`
     type PageComponent {
       idx: String
       path: String
       type: String
       props: PagesYamlComponentsProps
     }
-  `
-  createTypes(typeDefs)
+  `)
 }
 
 exports.createResolvers = ({ createResolvers }) => {
@@ -38,19 +51,7 @@ exports.createResolvers = ({ createResolvers }) => {
             type: "PagesYaml",
           })
           
-          return pages.reduce((acc, { path, components }) => {
-            const component = components.find(({ type }) => type === args.type);
-
-            if (component) {
-              acc.push({
-                idx: components.indexOf(component),
-                path,
-                ...component,
-              })
-            }
-
-            return acc;
-          }, [])
+          return buildPageComponents(args.type, pages)
         }
       }
     }
