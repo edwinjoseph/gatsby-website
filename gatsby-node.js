@@ -44,13 +44,13 @@ exports.createResolvers = ({ createResolvers }) => {
       pagesComponentYaml: {
         type: ["PageComponent"],
         args: {
-          type: "String!"
+          type: "String!",
         },
-        async resolve(source, args, context) {
+        async resolve(_, args, context) {
           const pages = await context.nodeModel.getAllNodes({
             type: "PagesYaml",
           })
-          
+
           return buildPageComponents(args.type, pages)
         }
       }
